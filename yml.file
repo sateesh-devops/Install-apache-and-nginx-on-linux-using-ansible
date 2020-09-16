@@ -1,0 +1,26 @@
+---
+- name: This sets up an nginx
+  hosts: localhost
+  tasks:
+   - name: Install httpd
+    yum:
+      name: httpd
+      state: present
+  - name: ensure httpd is running
+    service:
+      name: httpd
+      state: started
+  - name: Add epel-release repo
+    yum:
+      name: epel-release
+      state: present
+  - name: Install nginx packages
+    yum:
+      name: nginx
+      state: present
+  - name: ensure nginx is running
+    service:
+      name: nginx
+      state: started
+      
+
